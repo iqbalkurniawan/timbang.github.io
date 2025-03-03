@@ -20,7 +20,7 @@
 
                     </div>
                     <div class="box-header">
-                        <button class="btn btn-danger btn-block" id="connect_timbang"> <span style="font-size:30px;font-family:Odibee Sans"> <i class="fa fa-link"></i> Koneksikan Ke timbangan </span></button>
+                        <button class="btn btn-danger btn-block" id="connect_timbang"> <span style="font-size:30px;font-family:Odibee Sans"> <i class="fa fa-link"></i> Koneksikan Ke timbangan tst </span></button>
 
                     </div>
                     <div class="box-body">
@@ -37,5 +37,29 @@
 
 
     </section> 
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+         $('#connect_timbang').on('click', async () => {
+            // const port = await navigator.serial.requestPort();
+            // console.log(`Requested serial port. Connected: ${port.connected}`);
+            // await port.open({
+            //     baudRate: 9600
+            // }); // Sesuaikan baud rate sesuai kebutuhan
+
+            // if (port.connected) {
+            //     port.open({
+            //         baudRate: 9600
+            //     });
+            //     console.log("port opened");
+
+            // }
+            let ports = await navigator.serial.getPorts();
+            port = await navigator.serial.requestPort();
+            await port.open({
+                baudRate: 9600
+            });
+            console.log('port jj', port);
+        });
+    </script>
 </body>
 </html>
